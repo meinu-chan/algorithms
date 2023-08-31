@@ -3,7 +3,7 @@ import { buildArrayWithRandomNumbers, generateRandomNumber } from './util/number
 import { buildArrayWithRandomStrings, getRandomLetter } from './util/string'
 import { describe, expect, it } from '@jest/globals'
 
-describe('binary-search', () => {
+describe('binary search', () => {
   it('should correctly return index searching number element', () => {
     const randomNumberArray = buildArrayWithRandomNumbers(10).sort(
       (a, b) => a - b,
