@@ -6,19 +6,36 @@ export function getRandomLetter(): string {
   return characters.charAt(Math.floor(Math.random() * characters.length))
 }
 
+export function generateRandomString(length: number): string {
+  const wordLength = generateRandomNumber(length)
+
+  let randomString = ''
+
+  for (let i = 0; i < wordLength; i++) {
+    randomString += getRandomLetter()
+  }
+
+  return randomString
+}
+
 export function buildArrayWithRandomStrings(
   length: number,
   maxWordLength: number = 1,
+  options: { unique?: boolean } = {},
 ): string[] {
-  return Array.from({ length }, () => {
-    const wordLength = generateRandomNumber(maxWordLength)
+  const arrayWithRandomStrings: string[] = []
 
-    let randomString = ''
+  while (arrayWithRandomStrings.length < length) {
+    const randomString = generateRandomString(maxWordLength)
 
-    for (let i = 0; i < wordLength; i++) {
-      randomString += getRandomLetter()
+    if (options.unique) {
+      if (arrayWithRandomStrings.includes(randomString)) {
+        continue
+      }
     }
 
-    return randomString
-  })
+    arrayWithRandomStrings.push(randomString)
+  }
+
+  return arrayWithRandomStrings
 }

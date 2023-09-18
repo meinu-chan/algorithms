@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "ts": "ts-node",
-    "test": "jest"
+    "test": "jest",
+    "test:performance": "ts-node src/__test__/performance/collector.ts"
   },
   "repository": {
     "type": "git",

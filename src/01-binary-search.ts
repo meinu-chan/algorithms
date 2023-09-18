@@ -1,10 +1,10 @@
-export function binarySearch<TItem>(list: TItem[], item: TItem): number {
+export function binarySearch<TItem>(array: TItem[], item: TItem): number {
   let lowestItemIndex = 0
-  let highestItemIndex = list.length - 1
+  let highestItemIndex = array.length - 1
 
   while (lowestItemIndex <= highestItemIndex) {
-    const middleItemIndex = lowestItemIndex + highestItemIndex
-    const guessedItem = list[middleItemIndex]
+    const middleItemIndex = Math.floor((lowestItemIndex + highestItemIndex) / 2)
+    const guessedItem = array[middleItemIndex]
 
     if (guessedItem === item) {
       return middleItemIndex
